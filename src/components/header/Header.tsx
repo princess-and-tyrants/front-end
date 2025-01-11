@@ -1,7 +1,7 @@
-import { HeaderLayout } from "../layout/Layout";
-import "./header.scss";
-import MBTIDLogo from "../../assets/mbtidLogo.svg";
-import { NavLink } from "react-router";
+import { HeaderLayout } from '../layout/Layout';
+import './header.scss';
+import BenefitLogo from '../../assets/benefitLogo.svg';
+import { NavLink } from 'react-router';
 
 type MenuItemType = {
   name: string;
@@ -9,12 +9,7 @@ type MenuItemType = {
 };
 const MenuItem = ({ name, path }: MenuItemType) => {
   return (
-    <NavLink
-      to={path}
-      className={({ isActive }) =>
-        "menu-item body1-medium" + (isActive ? " active" : "")
-      }
-    >
+    <NavLink to={path} className={({ isActive }) => 'menu-item body1-medium' + (isActive ? ' active' : '')}>
       {name}
     </NavLink>
   );
@@ -24,13 +19,13 @@ const Header = () => {
     <HeaderLayout>
       <div className="header-container">
         <NavLink to="/">
-          <img className="header-logo" src={MBTIDLogo} alt="MBTiD 로고" />
+          <img className="header-logo" src={BenefitLogo} alt="베네핏 홀덤펍 로고" />
         </NavLink>
 
         <div className="menu-container">
           <MenuItem name="홈" path="/" />
-          <MenuItem name="보관함" path="/rank" />
-          <MenuItem name="MY" path="/event" />
+          <MenuItem name="랭킹" path="/rank" />
+          <MenuItem name="이벤트" path="/event" />
         </div>
       </div>
     </HeaderLayout>
