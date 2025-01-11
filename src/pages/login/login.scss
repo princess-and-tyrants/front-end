@@ -1,0 +1,30 @@
+@use "/src/styles/modules";
+
+.login-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .logo {
+    margin-bottom: 12px;
+  }
+  .title {
+    color: modules.$black;
+    margin-bottom: 40px;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .input-field:first-child {
+    margin-bottom: 8px;
+  }
+
+  .error-text {
+    color: modules.$red;
+    margin-top: 4px;
+  }
+}
