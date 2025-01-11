@@ -1,0 +1,46 @@
+// _modules.scss
+@forward "./fonts";
+@forward "./colors";
+@forward "./mixins";
+
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+:root {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+// Reset CSS
+*,
+*::before,
+*::after {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

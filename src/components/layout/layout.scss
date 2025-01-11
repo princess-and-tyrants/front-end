@@ -1,0 +1,67 @@
+@use "/src/styles/modules";
+
+.header-layout {
+  position: fixed;
+  min-width: 100%;
+  height: 72px;
+
+  .content {
+    margin: 0 auto;
+
+    @include modules.desktop {
+      max-width: 960px;
+      padding: 0 32px;
+    }
+
+    @include modules.tablet {
+      max-width: 500px;
+      height: 64px;
+      padding: 0 16px;
+    }
+
+    @include modules.mobile {
+      min-width: 360px;
+    }
+  }
+}
+
+
+.page-layout {
+  min-width: 100%;
+  min-height: 100%;
+
+  @include modules.desktop {
+    padding-top: 72px;
+  }
+
+  @include modules.tablet {
+    padding-top: 64px;
+  }
+
+  @include modules.mobile {
+    min-width: 360px;
+  }
+
+}
+
+.layout {
+  width: 100%;
+
+  .content {
+    margin: 0 auto;
+
+    @include modules.desktop {
+      max-width: 960px;
+      padding: 0 54px;
+    }
+
+    @include modules.tablet {
+      max-width: 500px;
+      padding: 0 16px;
+    }
+
+    @include modules.mobile {
+      min-width: 100%;
+    }
+  }
+}
