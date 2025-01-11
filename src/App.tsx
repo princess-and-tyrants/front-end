@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import Rank from "./pages/rank/Rank";
 import Event from "./pages/event/Event";
 import Login from "./pages/login/Login";
+import Join from "./pages/join/Join";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/event" element={<Event />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/join" element={<Join />} />
       </Routes>
     </BrowserRouter>
   );
