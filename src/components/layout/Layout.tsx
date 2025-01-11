@@ -14,7 +14,7 @@ export const PageLayout = ({
   className,
 }: {
   children: ReactNode;
-  className: string;
+  className?: string;
 }) => {
   return (
     <div className={`page-layout ${className}`}>
@@ -27,7 +27,7 @@ export const Layout = ({
   className,
 }: {
   children: ReactNode;
-  className: string;
+  className?: string;
 }) => {
   return (
     <div className={`layout ${className}`}>
