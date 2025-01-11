@@ -1,0 +1,25 @@
+@use "/src/styles/modules";
+
+.ouline-button {
+  color: modules.$purple-300;
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid modules.$purple-300;
+
+  cursor: pointer;
+
+  &.disabled {
+    color: modules.$gray-400;
+    background-color: modules.$gray-200;
+  }
+
+  &[data-size="small"] {
+    padding: 7px 8px;
+    width: fit-content;
+  }
+
+  &[data-size="large"] {
+    padding: 12px 0;
+    width: 100%;
+  }
+}
