@@ -1,5 +1,5 @@
 import { Layout, PageLayout } from "../../components/layout/Layout";
-import ProfileSmallPurple from "../../assets/profile-small-purple.svg";
+import ProfileSmallBlue from "../../assets/profile-small-blue.svg";
 import INTJ from "../../assets/INTJ.svg";
 
 import "./home.scss";
@@ -10,6 +10,14 @@ const Home = () => {
   const MBTIDCardData: MBTIDCardDataType = {
     name: "유화정",
     mbti: "INTJ",
+    mbti1_score: 60,
+    mbti2_score: 70,
+    mbti3_score: 80,
+    mbti4_score: 90,
+  };
+  const MBTIDCardData2: MBTIDCardDataType = {
+    name: "유화정",
+    mbti: "ISTJ",
     mbti1_score: 60,
     mbti2_score: 70,
     mbti3_score: 80,
@@ -42,7 +50,7 @@ const Home = () => {
           <div className="title-wrapper">
             <div className="image-wrapper">
               <img
-                src={ProfileSmallPurple}
+                src={ProfileSmallBlue}
                 alt="프로필 이미지"
                 className="profile-image"
               />
@@ -51,8 +59,11 @@ const Home = () => {
             <p className="subtitle-text f-caption">총 4명이 투표했어요!</p>
           </div>
 
-          <MBTIScoreGraph data={MBTIDCardData} />
+          <MBTIScoreGraph data={MBTIDCardData2} />
         </div>
+      </Layout>
+      <Layout className="home-visitors-container">
+        <h3 className="home-visitors-title f-title2">방명록</h3>
       </Layout>
     </PageLayout>
   );

@@ -8,6 +8,7 @@
     .mbti-card-container {
       background: modules.$purple-100;
       padding: 12px;
+      border-radius: 8px;
 
       .title-wrapper {
         display: flex;
@@ -50,6 +51,8 @@
   }
 
   .home-vote-card-layout {
+    margin-bottom: 28px;
+
     .home-vote-title {
       margin-bottom: 8px;
     }
@@ -86,6 +89,12 @@
           color: modules.$gray-300;
         }
       }
+    }
+  }
+
+  .home-visitors-container {
+    .home-visitors-title {
+      margin-bottom: 8px;
     }
   }
 }
