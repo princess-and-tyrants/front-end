@@ -1,5 +1,9 @@
-import { MBTIDCardDataType } from "../components/MBTIDCard/MBTIDCard";
-import { MBTIColorPairType, MBTIScoreDataType, MBTIType } from "./types";
+import {
+  MBTIColorPairType,
+  MBTIDCardDataType,
+  MBTIScoreDataType,
+  MBTIType,
+} from "./types";
 
 export const getMBTIScoreArray = (mbtiData: MBTIDCardDataType) => {
   const mbti = mbtiData.mbti;
@@ -39,22 +43,22 @@ export const getMBTIScoreArray = (mbtiData: MBTIDCardDataType) => {
 
 export const getMBTIColor = (mbti: MBTIType) => {
   const MBTIColorPair: MBTIColorPairType = {
-    INFJ: "#6C60C6",
-    INFP: "#6C60C6",
+    INFJ: "#3FAC75",
+    INFP: "#3FAC75",
     INTJ: "#6C60C6",
     INTP: "#6C60C6",
     ISTJ: "#3CC4C8",
-    ISTP: "#6C60C6",
-    ISFJ: "#6C60C6",
-    ISFP: "#6C60C6",
+    ISTP: "#F3BE3B",
+    ISFJ: "#3CC4C8",
+    ISFP: "#F3BE3B",
     ENTJ: "#6C60C6",
-    ENFJ: "#6C60C6",
-    ENFP: "#6C60C6",
+    ENFJ: "#3FAC75",
+    ENFP: "#3FAC75",
     ENTP: "#6C60C6",
-    ESTJ: "#6C60C6",
-    ESTP: "#6C60C6",
-    ESFJ: "#6C60C6",
-    ESFP: "#6C60C6",
+    ESTJ: "#3CC4C8",
+    ESTP: "#F3BE3B",
+    ESFJ: "#3CC4C8",
+    ESFP: "#F3BE3B",
   };
 
   return MBTIColorPair[mbti];
@@ -62,23 +66,42 @@ export const getMBTIColor = (mbti: MBTIType) => {
 
 export const getMBTIBGColor = (mbti: MBTIType) => {
   const MBTIColorPair: MBTIColorPairType = {
-    INFJ: "#FAF2FD",
-    INFP: "#FAF2FD",
+    INFJ: "#EBFCF4",
+    INFP: "#EBFCF4",
     INTJ: "#FAF2FD",
     INTP: "#FAF2FD",
     ISTJ: "#E5F8FF",
-    ISTP: "#FAF2FD",
-    ISFJ: "#FAF2FD",
-    ISFP: "#FAF2FD",
+    ISTP: "#FDF7DB",
+    ISFJ: "#E5F8FF",
+    ISFP: "#FDF7DB",
     ENTJ: "#FAF2FD",
-    ENFJ: "#FAF2FD",
-    ENFP: "#FAF2FD",
+    ENFJ: "#EBFCF4",
+    ENFP: "#EBFCF4",
     ENTP: "#FAF2FD",
-    ESTJ: "#FAF2FD",
-    ESTP: "#FAF2FD",
-    ESFJ: "#FAF2FD",
-    ESFP: "#FAF2FD",
+    ESTJ: "#E5F8FF",
+    ESTP: "#FDF7DB",
+    ESFJ: "#E5F8FF",
+    ESFP: "#FDF7DB",
   };
 
   return MBTIColorPair[mbti];
+};
+
+export const pointColorMBTIPair = {
+  INFJ: "green",
+  INFP: "green",
+  INTJ: "purple",
+  INTP: "purple",
+  ISTJ: "blue",
+  ISTP: "yellow",
+  ISFJ: "blue",
+  ISFP: "yellow",
+  ENTJ: "purple",
+  ENFJ: "green",
+  ENFP: "green",
+  ENTP: "purple",
+  ESTJ: "blue",
+  ESTP: "yellow",
+  ESFJ: "blue",
+  ESFP: "yellow",
 };
