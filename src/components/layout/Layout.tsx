@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import './layout.scss';
+import { ReactNode } from "react";
+import "./layout.scss";
 
 export const HeaderLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -9,16 +9,28 @@ export const HeaderLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const PageLayout = ({ children }: { children: ReactNode }) => {
+export const PageLayout = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => {
   return (
-    <div className="page-layout">
+    <div className={`page-layout ${className}`}>
       <div className="content">{children}</div>
     </div>
   );
 };
-export const Layout = ({ children }: { children: ReactNode }) => {
+export const Layout = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => {
   return (
-    <div className="layout">
+    <div className={`layout ${className}`}>
       <div className="content">{children}</div>
     </div>
   );
