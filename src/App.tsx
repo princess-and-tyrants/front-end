@@ -14,8 +14,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/rank" element={<Rank />} />
           <Route path="/event" element={<Event />} />
-          <Route path="/login" element={<Login />} />
         </Route>
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
