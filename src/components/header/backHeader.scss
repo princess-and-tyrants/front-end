@@ -1,0 +1,15 @@
+@use "/src/styles/modules";
+
+.back-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+
+  .back {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+}
