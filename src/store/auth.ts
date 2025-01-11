@@ -8,6 +8,11 @@ interface AuthState {
   clearToken: () => void;
 }
 
+export const getAccessToken = () => {
+  const accessToken = localStorage.getItem("accessToken");
+  return accessToken;
+};
+
 const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
