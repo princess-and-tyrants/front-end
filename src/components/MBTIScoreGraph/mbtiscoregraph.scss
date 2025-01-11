@@ -1,0 +1,38 @@
+@use "/src/styles/modules";
+
+.mbti-score-graph-container {
+  width: 100%;
+
+  .graph-item {
+    display: flex;
+    height: 18px;
+    justify-content: space-between;
+    align-items: center;
+
+    .graph-char {
+      width: 8px;
+      color: modules.$gray-400;
+      text-align: center;
+    }
+
+    .graph-bar {
+      width: 100%;
+      height: 8px;
+      background: modules.$white;
+      border-radius: 100px;
+      overflow: hidden;
+      margin: 0 4px;
+
+      .graph-bar-progress {
+        height: 100%;
+        border-radius: 100px;
+      }
+
+    }
+
+    .graph-score {
+      width: 40px;
+      color: modules.$gray-400;
+    }
+  }
+}

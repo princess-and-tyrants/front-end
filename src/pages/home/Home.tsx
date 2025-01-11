@@ -1,24 +1,58 @@
 import { Layout, PageLayout } from "../../components/layout/Layout";
+import ProfileSmallPurple from "../../assets/profile-small-purple.svg";
+import INTJ from "../../assets/INTJ.svg";
 
 import "./home.scss";
-import MBTiDCard, {
-  MBTIDCardDataType,
-} from "../../components/MBTiDCard/MBTiDCard";
+import MBTIScoreGraph from "../../components/MBTIScoreGraph/MBTIScoreGraph";
+import { MBTIDCardDataType } from "../../utils/types";
 
 const Home = () => {
-  const MBTiDCardData: MBTIDCardDataType = {
-    name: "testUser",
-    mbti: "ESFJ",
-    mbti1_score: 5,
-    mbti2_score: 8,
-    mbti3_score: 7,
-    mbti4_score: 6,
+  const MBTIDCardData: MBTIDCardDataType = {
+    name: "유화정",
+    mbti: "INTJ",
+    mbti1_score: 60,
+    mbti2_score: 70,
+    mbti3_score: 80,
+    mbti4_score: 90,
   };
 
   return (
     <PageLayout className="home-page-layout">
-      <Layout className="home-layout">
-        <MBTiDCard data={MBTiDCardData} />
+      <Layout className="home-my-card-layout">
+        <div className="mbti-card-container">
+          <div className="title-wrapper">
+            <h3 className="f-title2">{MBTIDCardData.name}의 MBTiD</h3>
+          </div>
+          <div className="img-wrapper">
+            <img src={INTJ} alt="INFJ 프로필 이미지" className="mbti-image" />
+          </div>
+          <div className="mbti-data-container">
+            <div className="mbti-title f-title1">{MBTIDCardData.mbti}</div>
+            <div className="mbti-subtitle f-body2">
+              모든 일에 대해 계획을 세우며
+              <br /> 상상력이 풍부한 전략가입니다.
+            </div>
+            <MBTIScoreGraph data={MBTIDCardData} />
+          </div>
+        </div>
+      </Layout>
+      <Layout className="home-vote-card-layout">
+        <h3 className="home-vote-title f-title2">친구들이 생각한 나의 MBTI</h3>
+        <div className="mbti-vote-card-container">
+          <div className="title-wrapper">
+            <div className="image-wrapper">
+              <img
+                src={ProfileSmallPurple}
+                alt="프로필 이미지"
+                className="profile-image"
+              />
+            </div>
+            <h3 className="title-text f-heading3">ISTJ</h3>
+            <p className="subtitle-text f-caption">총 4명이 투표했어요!</p>
+          </div>
+
+          <MBTIScoreGraph data={MBTIDCardData} />
+        </div>
       </Layout>
     </PageLayout>
   );
