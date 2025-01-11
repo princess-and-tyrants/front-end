@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { getAccessToken } from "../store/auth";
 
 // application/json용
@@ -12,7 +12,8 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (config: any) => {
     const token = getAccessToken();
     HeaderToken.set(token);
 
