@@ -1,0 +1,25 @@
+@use "/src/styles/modules";
+
+.solid-button {
+  color: modules.$white;
+  background-color: modules.$purple-300;
+  border-radius: 100px;
+  border: none;
+
+  cursor: pointer;
+
+  &.disabled {
+    color: modules.$gray-400;
+    background-color: modules.$gray-200;
+  }
+
+  &[data-size="small"] {
+    padding: 7px 8px;
+    width: fit-content;
+  }
+
+  &[data-size="large"] {
+    padding: 12px 0;
+    width: 100%;
+  }
+}
