@@ -1,0 +1,53 @@
+@use "/src/styles/modules";
+
+.test-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+
+  .count {
+    color: modules.$purple-200;
+    margin-bottom: 16px;
+  }
+  .question {
+    text-align: center;
+    margin-bottom: 36px;
+    margin: 0 30px;
+  }
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+  .select-button {
+    width: 120px;
+    height: 48px;
+    border-radius: 100px;
+    border: none;
+    color: modules.$gray-400;
+  }
+  .result {
+    margin-bottom: 10px;
+  }
+}
+.result-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 150px);
+
+  .question {
+    text-align: center;
+    margin-bottom: 36px;
+    margin: 0 50px;
+    color: modules.$purple-200;
+  }
+  .result {
+    margin-bottom: 10px;
+  }
+}
