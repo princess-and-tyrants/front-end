@@ -86,7 +86,7 @@ const Join = () => {
       (res) => {
         console.log(res);
         alert("회원가입되었습니다");
-        navigate("/");
+        navigate("/login");
       },
       (error) => {
         console.error(error);
@@ -186,7 +186,7 @@ const Join = () => {
                   type="submit"
                   size="large"
                   onClick={() => {
-                    navigate("/join");
+                    navigate("/test");
                   }}
                 >
                   MBTI 검사하기
@@ -311,10 +311,10 @@ const Join = () => {
                   회원가입 (2/2)
                 </SolidButton>
                 <OutlineButton
-                  type="submit"
+                  type="button"
                   size="large"
                   onClick={() => {
-                    navigate("/join");
+                    navigate("/test");
                   }}
                 >
                   MBTI 검사하기

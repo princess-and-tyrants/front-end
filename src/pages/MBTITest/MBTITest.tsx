@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Category, questions } from "../../data/mbti";
 import { Layout } from "../../components/layout/Layout";
+import TitleHeader from "../../components/header/TitleHeader";
+import "./MBTITest.scss";
+import OutlineButton from "../../components/button/OutlineButton";
+import { useNavigate } from "react-router";
 
 const MBTITest = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -14,6 +18,7 @@ const MBTITest = () => {
     J: 0,
     P: 0,
   });
+  const navigate = useNavigate();
 
   const getOppositeCategory = (category: Category): Category => {
     const opposites: {
@@ -77,44 +82,55 @@ const MBTITest = () => {
     const { percentages, mbti } = calculatePercentages();
     return (
       <Layout>
-        <div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <h1>결과 : {mbti.join("")}</h1>
-          <p>
-            외향(E) / 내향(I): {mbti[0]} {percentages.EI}%
+        <TitleHeader title={"MBTI 검사하기"} />
+        <div className="result-layout">
+          <h1 className="question">{mbti.join("")}</h1>
+          <p className="result">
+            {mbti[0]}{" "}
+            {percentages.EI > 50 ? percentages.EI : 100 - percentages.EI}%
           </p>
-          <p>
-            감각(S) / 직관(N): {mbti[1]} {percentages.SN}%
+          <p className="result">
+            {mbti[1]}
+            {percentages.SN > 50 ? percentages.TF : 100 - percentages.TF}%
           </p>
-          <p>
-            사고(T) / 감정(F): {mbti[2]} {percentages.TF}%
+          <p className="result">
+            {mbti[2]}
+            {percentages.TF > 50 ? percentages.TF : 100 - percentages.TF}%
           </p>
-          <p>
-            판단(J) / 인식(P): {mbti[3]} {percentages.JP}%
+          <p className="result">
+            {mbti[3]}
+            {percentages.JP > 50 ? percentages.JP : 100 - percentages.JP}%
           </p>
         </div>
+        <OutlineButton
+          type="submit"
+          size="large"
+          onClick={() => {
+            navigate("/join");
+          }}
+        >
+          회원가입 하러 가기
+        </OutlineButton>
       </Layout>
     );
   }
 
   return (
     <Layout>
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>MBTI 테스트</h1>
-        <p>{questions[currentQuestionIndex].question}</p>
-        <button onClick={() => handleAnswer(true)}>예</button>
-        <button onClick={() => handleAnswer(false)}>아니요</button>
+      <TitleHeader title={"MBTI 검사하기"} />
+      <div className="test-layout">
+        <p className="count f-title2">{`${currentQuestionIndex}/38`}</p>
+        <p className="question f-title1">
+          {questions[currentQuestionIndex].question}
+        </p>
+        <div className="button-wrapper">
+          <button className="select-button" onClick={() => handleAnswer(true)}>
+            예
+          </button>
+          <button className="select-button" onClick={() => handleAnswer(false)}>
+            아니요
+          </button>
+        </div>
       </div>
     </Layout>
   );
