@@ -66,6 +66,7 @@
   }
   .slider-wrapper p {
     margin-top: -4px;
+    color: modules.$gray-400;
   }
 
   /* 슬라이더 전체 컨테이너 */
@@ -86,6 +87,11 @@
   /* 선택된 부분 (왼쪽) 보라색 */
   .track-0 {
     background-color: modules.$purple-300; /* 보라색 */
+    height: 100%;
+    border-radius: 4px;
+  }
+  .track-1 {
+    background-color: modules.$green-200; /* 보라색 */
     height: 100%;
     border-radius: 4px;
   }

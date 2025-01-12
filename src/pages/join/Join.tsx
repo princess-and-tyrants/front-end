@@ -231,7 +231,7 @@ const Join = () => {
                     className="percentage"
                     style={{ left: `calc(${ei}% - 15px)` }}
                   >
-                    {ei}%
+                    {ei > 50 ? ei : 100 - ei}%
                   </div>
                 </div>
                 <p>I</p>
@@ -252,7 +252,7 @@ const Join = () => {
                     className="percentage"
                     style={{ left: `calc(${sn}% - 15px)` }}
                   >
-                    {sn}%
+                    {sn > 50 ? sn : 100 - sn}%
                   </div>
                 </div>
                 <p>N</p>
@@ -273,7 +273,7 @@ const Join = () => {
                     className="percentage"
                     style={{ left: `calc(${tf}% - 15px)` }}
                   >
-                    {tf}%
+                    {tf > 50 ? tf : 100 - tf}%
                   </div>
                 </div>
                 <p>F</p>
@@ -294,7 +294,7 @@ const Join = () => {
                     className="percentage f-caption"
                     style={{ left: `calc(${pj}% - 15px)` }}
                   >
-                    {pj}%
+                    {pj > 50 ? pj : 100 - pj}%
                   </div>
                 </div>
                 <p>J</p>
