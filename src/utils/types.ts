@@ -11,6 +11,15 @@ export type MBTIScoreDataType = {
   score: number;
 };
 
+export type VisitorDataType = {
+  first_mbti_element: string;
+  second_mbti_element: string;
+  third_mbti_element: string;
+  fourth_mbti_element: string;
+  comment: string;
+  incognito: boolean;
+};
+
 export type MBTIType =
   | "INFJ"
   | "INFP"

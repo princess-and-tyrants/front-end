@@ -1,0 +1,13 @@
+@use "/src/styles/modules";
+
+.outline-chip-gray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px;
+  margin-left: 4px;
+  border-radius: 100px;
+  border: 1px solid modules.$gray-300;
+  color: modules.$gray-300;
+
+}
