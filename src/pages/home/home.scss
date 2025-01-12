@@ -90,11 +90,113 @@
         }
       }
     }
+
+    .no-votes-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 160px;
+      background: modules.$gray-100;
+      border-radius: 8px;
+
+      .no-votes-text {
+        color: modules.$gray-300;
+      }
+    }
   }
 
   .home-visitors-container {
-    .home-visitors-title {
-      margin-bottom: 8px;
+    .home-visitors-title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .svg-button {
+        display: flex;
+        align-items: center;
+
+        color: modules.$purple-300;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        border: none;
+
+
+      }
+
+    }
+
+    .visitors-container {
+      width: 100%;
+      padding: 16px;
+      background: modules.$gray-100;
+      border-radius: 8px;
+
+      .visitors-list {
+        .visitor-item {
+          width: 100%;
+          padding: 12px 0;
+          border-bottom: 1px solid modules.$gray-200;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .main-section {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 4px;
+
+            .image-wrapper {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 28px;
+              height: 28px;
+              background: modules.$white;
+              border-radius: 100%;
+              margin-right: 8px;
+
+              .profile-image {
+                width: 18px;
+                height: auto;
+              }
+            }
+
+            .text-wrapper {
+              width: 100%;
+
+              .text {
+                color: modules.$gray-400;
+              }
+            }
+          }
+
+          .sub-section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding-left: 36px;
+          }
+        }
+      }
+
+      .no-data-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 128px;
+
+
+        .no-data-text {
+          color: modules.$gray-300;
+        }
+      }
     }
   }
 }

@@ -1,6 +1,5 @@
 import { getMBTIColor, getMBTIScoreArray } from "../../utils/functions";
-import { MBTIScoreDataType } from "../../utils/types";
-import { MBTIDCardDataType } from "../MBTIDCard/MBTIDCard";
+import { MBTIDCardDataType, MBTIScoreDataType } from "../../utils/types";
 import "./mbtiscoregraph.scss";
 
 const GraphItem = ({

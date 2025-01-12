@@ -1,0 +1,12 @@
+@use "/src/styles/modules";
+
+.outline-chip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 100px;
+  border: 1px solid modules.$purple-300;
+  color: modules.$purple-300;
+
+}

@@ -14,7 +14,7 @@ const InputBox = React.forwardRef<HTMLInputElement, InputBoxProps>(
           type={inputType}
           required
           placeholder={placeholder}
-          className="input-box"
+          className="input-box f-body1"
           ref={ref}
           {...props}
         />
