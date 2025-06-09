@@ -5,8 +5,8 @@ import VoteList from "@/components/List/voteList/VoteList";
 import ChevronRight from "@/assets/chevron-right.svg";
 import { VoteDetail, VoteResult } from "@/types/vote";
 import { UserMbtiProfile } from "@/types/profile";
-import "./MbtiPageTemplate.scss";
 import { useNavigate } from "react-router-dom";
+import "./mbtiPageTemplate.scss";
 
 interface MbtiPageTemplateProps {
   profileData: UserMbtiProfile;
