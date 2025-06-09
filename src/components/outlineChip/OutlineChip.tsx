@@ -1,12 +1,9 @@
-import { pointColorMBTIPair } from "../../utils/functions";
-import { MBTIType, VisitorDataType } from "../../utils/types";
+import { VoteDetail } from "@/types/vote";
+import { pointColorMBTIPair } from "@/utils/functions";
 import "./outlinechip.scss";
 
-const OutlineChip = ({ visitorData }: { visitorData: VisitorDataType }) => {
-  const fullMBTI = (visitorData.first_mbti_element +
-    visitorData.second_mbti_element +
-    visitorData.third_mbti_element +
-    visitorData.fourth_mbti_element) as MBTIType;
+const OutlineChip = ({ visitorData }: { visitorData: VoteDetail }) => {
+  const fullMBTI = visitorData.mbti_result;
   const pointColor = pointColorMBTIPair[fullMBTI];
 
   return (

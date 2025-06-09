@@ -1,5 +1,6 @@
+import { MbtiScoreProps } from "../../types/mbti";
 import { getMBTIColor, getMBTIScoreArray } from "../../utils/functions";
-import { MBTIDCardDataType, MBTIScoreDataType } from "../../utils/types";
+import { MBTIScoreDataType } from "../../utils/types";
 import "./mbtiscoregraph.scss";
 
 const GraphItem = ({
@@ -18,16 +19,16 @@ const GraphItem = ({
           style={{ width: `${data.score}%`, background: color }}
         ></div>
       </div>
-      <p className="graph-score f-caption">{`${data.score}%`}</p>
+      <p className="graph-score f-caption">{`${Math.trunc(data.score)}%`}</p>
     </div>
   );
 };
-const MBTIScoreGraph = ({ data }: { data: MBTIDCardDataType }) => {
-  const scoreData = getMBTIScoreArray(data);
+const MBTIScoreGraph = ({ mbti, ei, sn, tf, jp }: MbtiScoreProps) => {
+  const scoreData = getMBTIScoreArray({ mbti, ei, sn, tf, jp });
   return (
     <div className="mbti-score-graph-container">
       {scoreData.map((d, idx) => (
-        <GraphItem key={idx} data={d} color={getMBTIColor(data.mbti)} />
+        <GraphItem key={idx} data={d} color={getMBTIColor(mbti)} />
       ))}
     </div>
   );
