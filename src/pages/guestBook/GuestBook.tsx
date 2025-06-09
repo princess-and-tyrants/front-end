@@ -5,8 +5,8 @@ import { createVote } from "@/api/vote";
 
 import { Layout } from "@/components/layout/Layout";
 import SolidButton from "@/components/button/SolidButton";
-import checkBox from "@/assets/checkBox/checkbox_checked.svg";
-import EmptycheckBox from "@/assets/checkBox/checkbox_unchecked.svg";
+import checkBox from "@/assets/checkbox/checkbox_checked.svg";
+import EmptycheckBox from "@/assets/checkbox/checkbox_unchecked.svg";
 import { VoteRequest } from "@/types/vote";
 import "./guestBook.scss";
 
