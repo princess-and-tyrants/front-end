@@ -1,4 +1,4 @@
-import "./BackHeader.scss";
+import "./backHeader.scss";
 import arrowLeft from "../../assets/arrow-left.svg";
 import { useNavigate } from "react-router";
 

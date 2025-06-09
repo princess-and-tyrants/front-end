@@ -1,5 +1,5 @@
 import React from "react";
-import "./InputBox.scss";
+import "./inputBox.scss";
 
 interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
