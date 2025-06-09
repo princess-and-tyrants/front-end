@@ -1,14 +1,15 @@
-import { Layout, PageLayout } from "../../components/layout/Layout";
-import "./Join.scss";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import InputBox from "../../components/input/InputBox";
-import SolidButton from "../../components/button/SolidButton";
-import BackHeader from "../../components/header/BackHeader";
-import { useState, useEffect } from "react";
 import Slider from "react-slider";
-import OutlineButton from "../../components/button/OutlineButton";
-import { checkId, join } from "../../api/auth";
+
+import { Layout, PageLayout } from "@/components/layout/Layout";
+import InputBox from "@/components/input/InputBox";
+import SolidButton from "@/components/button/SolidButton";
+import BackHeader from "@/components/header/BackHeader";
+import OutlineButton from "@/components/button/OutlineButton";
+import { checkId, join } from "@/api/auth";
+import "./join.scss";
 
 export interface JoinProps {
   id: string;
