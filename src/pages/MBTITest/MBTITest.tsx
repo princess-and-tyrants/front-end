@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Category, questions } from "../../data/mbti";
-import { Layout } from "../../components/layout/Layout";
-import TitleHeader from "../../components/header/TitleHeader";
-import "./MBTITest.scss";
-import OutlineButton from "../../components/button/OutlineButton";
 import { useNavigate } from "react-router";
+import { Category, questions } from "@/data/mbtiTest";
+import { Layout } from "@/components/layout/Layout";
+import TitleHeader from "@/components/header/TitleHeader";
+import OutlineButton from "@/components/button/OutlineButton";
+import "./MBTITest.scss";
 
 const MBTITest = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

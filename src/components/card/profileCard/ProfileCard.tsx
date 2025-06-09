@@ -2,13 +2,13 @@ import { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
 import MBTIScoreGraph from "@/components/MBTIScoreGraph/MBTIScoreGraph";
+import OutlineButton from "@/components/button/OutlineButton";
 import { getMbtiDescription } from "@/utils/getMbtiDescription";
 import { getMbtiImageSrc } from "@/utils/getMbtiProfile";
+import { getMBTIBGColor } from "@/utils/getMbtiColor";
 import { UserMbtiProfile } from "@/types/profile";
-import { getMBTIBGColor } from "@/utils/functions";
 import "./profileCard.scss";
 
-import OutlineButton from "@/components/button/OutlineButton";
 interface ProfileCardProps {
   data: UserMbtiProfile;
   isMine: boolean;

@@ -1,5 +1,5 @@
 import { VoteDetail } from "@/types/vote";
-import { pointColorMBTIPair } from "@/utils/functions";
+import { pointColorMBTIPair } from "@/utils/getMbtiColor";
 import "./outlinechip.scss";
 
 const OutlineChip = ({ visitorData }: { visitorData: VoteDetail }) => {

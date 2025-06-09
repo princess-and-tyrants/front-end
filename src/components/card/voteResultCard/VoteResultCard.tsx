@@ -1,7 +1,7 @@
-import { VoteResult } from "@/types/vote";
-import { getMBTIBGColor } from "@/utils/functions";
-import { getMbtiMiniProfileImage } from "@/utils/getMbtiProfile";
 import MBTIScoreGraph from "@/components/MBTIScoreGraph/MBTIScoreGraph";
+import { getMbtiMiniProfileImage } from "@/utils/getMbtiProfile";
+import { getMBTIBGColor } from "@/utils/getMbtiColor";
+import { VoteResult } from "@/types/vote";
 
 import "./voteResultCard.scss";
 

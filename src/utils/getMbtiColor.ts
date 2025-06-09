@@ -1,45 +1,4 @@
-import {
-  MBTIColorPairType,
-  MBTIDCardDataType,
-  MBTIScoreDataType,
-  MBTIType,
-} from "./types";
-
-export const getMBTIScoreArray = (mbtiData: MBTIDCardDataType) => {
-  const mbti = mbtiData.mbti;
-  const res: MBTIScoreDataType[] = [];
-  let score;
-
-  score =
-    mbtiData.mbti1_score > 50
-      ? mbtiData.mbti1_score
-      : 100 - mbtiData.mbti1_score;
-
-  res.push({ char: mbti[0], score });
-
-  score =
-    mbtiData.mbti2_score > 50
-      ? mbtiData.mbti2_score
-      : 100 - mbtiData.mbti2_score;
-
-  res.push({ char: mbti[1], score });
-
-  score =
-    mbtiData.mbti3_score > 50
-      ? mbtiData.mbti3_score
-      : 100 - mbtiData.mbti3_score;
-
-  res.push({ char: mbti[2], score });
-
-  score =
-    mbtiData.mbti4_score > 50
-      ? mbtiData.mbti4_score
-      : 100 - mbtiData.mbti4_score;
-
-  res.push({ char: mbti[3], score });
-
-  return res;
-};
+import { MBTIColorPairType, MBTIType } from "./types";
 
 export const getMBTIColor = (mbti: MBTIType) => {
   const MBTIColorPair: MBTIColorPairType = {
