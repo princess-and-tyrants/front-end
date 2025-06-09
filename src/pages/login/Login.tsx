@@ -1,15 +1,15 @@
-import { Layout, PageLayout } from "../../components/layout/Layout";
-import useAuthStore from "../../store/auth";
-import logo from "../../assets/mbtidLogo.svg";
-import "./login.scss";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import InputBox from "../../components/input/InputBox";
-import SolidButton from "../../components/button/SolidButton";
-import OutlineButton from "../../components/button/OutlineButton";
-import { login } from "../../api/auth";
-import { encryptAES } from "../../util/encryptAES";
-import { useState } from "react";
+import useAuthStore from "@/store/auth";
+import { login } from "@/api/auth";
+
+import { Layout, PageLayout } from "@/components/layout/Layout";
+import InputBox from "@/components/input/InputBox";
+import SolidButton from "@/components/button/SolidButton";
+import OutlineButton from "@/components/button/OutlineButton";
+import logo from "@/assets/mbtidLogo.svg";
+import "./login.scss";
 
 export interface LoginProps {
   id: string;
@@ -24,11 +24,7 @@ const Login = () => {
   const handleLogin = (data: LoginProps) => {
     const loginData = {
       id: data.id,
-      password: encryptAES(
-        data.password,
-        import.meta.env.VITE_SECRETE_KEY,
-        import.meta.env.VITE_IV
-      ),
+      password: data.password,
     };
 
     login(loginData).then(

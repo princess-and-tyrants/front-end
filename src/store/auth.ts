@@ -9,8 +9,16 @@ interface AuthState {
 }
 
 export const getAccessToken = () => {
-  const accessToken = localStorage.getItem("accessToken");
-  return accessToken;
+  const raw = localStorage.getItem("auth-storage");
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+
+    return parsed.state?.accessToken ?? null;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };
 
 const useAuthStore = create<AuthState>()(

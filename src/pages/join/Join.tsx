@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import Slider from "react-slider";
 import OutlineButton from "../../components/button/OutlineButton";
 import { checkId, join } from "../../api/auth";
-import { encryptAES } from "../../util/encryptAES";
 
 export interface JoinProps {
   id: string;
@@ -70,16 +69,12 @@ const Join = () => {
     console.log("Form Submitted:", data);
     const joinData = {
       id: data.id,
-      password: encryptAES(
-        data.password,
-        import.meta.env.VITE_SECRETE_KEY,
-        import.meta.env.VITE_IV
-      ),
+      password: data.password,
       nickname: data.nickname,
-      mbti_ei_score: ei,
-      mbti_sn_score: sn,
-      mbti_tf_score: tf,
-      mbti_pj_score: pj,
+      mbti_ei_score: 100 - ei, //34 (e) e i
+      mbti_sn_score: 100 - sn, //64 (n) s n
+      mbti_tf_score: 100 - tf, //15 (t) t f
+      mbti_pj_score: 100 - pj, //94 (j) p j
     };
 
     join(joinData).then(
