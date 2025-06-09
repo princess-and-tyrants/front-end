@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Category, questions } from "@/data/mbtiTest";
 import { Layout } from "@/components/layout/Layout";
 import TitleHeader from "@/components/header/TitleHeader";

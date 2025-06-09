@@ -18,6 +18,7 @@ const HomeContent = () => {
   const { data: voteList } = useMyVoteListQuery(isLoggedIn);
 
   if (!isLoggedIn) {
+    console.log("로그인이 필요합니다.");
     navitate("/login");
     return null;
   }

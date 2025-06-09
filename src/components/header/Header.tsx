@@ -1,7 +1,7 @@
 import { HeaderLayout } from "../layout/Layout";
 import "./header.scss";
 import MBTIDLogo from "../../assets/mbtidLogo.svg";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import useAuthStore from "@/store/auth";
 
 type MenuItemType = {

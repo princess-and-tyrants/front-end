@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuthStore from "@/store/auth";
 import { login } from "@/api/auth";

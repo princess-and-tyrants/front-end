@@ -1,6 +1,6 @@
 import "./titleHeader.scss";
 import arrowLeft from "../../assets/arrow-left.svg";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 interface BackHeaderProps {
   title: string;
