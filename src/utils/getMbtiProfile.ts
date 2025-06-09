@@ -1,4 +1,4 @@
-import { mbtiType } from "../types/mbti";
+import { mbtiType } from "@/types/mbti";
 
 export const getMbtiImageSrc = (mbti: string) => `/assets/mbti/${mbti}.svg`;
 

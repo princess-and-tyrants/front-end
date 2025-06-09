@@ -1,4 +1,4 @@
-import { mbtiType } from "./mbti";
+import { mbtiType } from "@/types/mbti";
 // 투표 결과
 export interface VoteResult {
   total_count: number;
