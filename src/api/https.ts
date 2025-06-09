@@ -12,14 +12,16 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (config: any) => {
+  (config) => {
     const token = getAccessToken();
-    HeaderToken.set(token);
+
+    if (token) {
+      config.headers?.set?.("Authorization", `Bearer ${token}`);
+    }
 
     return config;
   },
-  (error: AxiosError) => {
+  (error) => {
     return Promise.reject(error);
   }
 );
@@ -31,19 +33,9 @@ api.interceptors.response.use(
 
     // 엑세스 토큰 만료
     if (status === 401) {
-      console.log("status", status);
+      alert("엑세스 토큰 만료");
     }
 
     return Promise.reject(error);
   }
 );
-
-export default class HeaderToken {
-  public static set = (accessToken: string | null): void => {
-    if (accessToken) {
-      api.defaults.headers.common.Authorization = `${accessToken}`;
-    } else {
-      delete api.defaults.headers.common.Authorization;
-    }
-  };
-}
