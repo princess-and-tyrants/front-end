@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { VoteListResponse } from "../../types/vote";
-import { fetchMyVoteList, fetchUserVoteList } from "../../api/vote";
+import { VoteListResponse } from "@/types/vote";
+import { fetchMyVoteList, fetchUserVoteList } from "@/api/vote";
 // 나의 투표 리스트 (방명록)
-export const useMyVoteListQuery = () => {
+export const useMyVoteListQuery = (isLoggedIn: boolean) => {
   return useQuery<VoteListResponse>({
     queryKey: ["myVoteList"],
     queryFn: fetchMyVoteList,
     retry: false,
+    enabled: isLoggedIn,
   });
 };
 // 유저 투표 리스트 (방명록)

@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { VoteResultResponse } from "../../types/vote";
-import { fetchMyVoteResult, fetchUserVoteResult } from "../../api/vote";
+import { VoteResultResponse } from "@/types/vote";
+import { fetchMyVoteResult, fetchUserVoteResult } from "@/api/vote";
 // 나의 투표 결과
-export const useMyVoteResultQuery = () => {
+export const useMyVoteResultQuery = (isLoggedIn: boolean) => {
   return useQuery<VoteResultResponse>({
     queryKey: ["myVoteResult"],
     queryFn: fetchMyVoteResult,
     retry: false,
+    enabled: isLoggedIn,
   });
 };
 
