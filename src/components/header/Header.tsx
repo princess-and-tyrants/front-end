@@ -2,6 +2,7 @@ import { HeaderLayout } from "../layout/Layout";
 import "./header.scss";
 import MBTIDLogo from "../../assets/mbtidLogo.svg";
 import { NavLink } from "react-router";
+import useAuthStore from "@/store/auth";
 
 type MenuItemType = {
   name: string;
@@ -20,6 +21,7 @@ const MenuItem = ({ name, path }: MenuItemType) => {
   );
 };
 const Header = () => {
+  const { isLoggedIn } = useAuthStore();
   return (
     <HeaderLayout>
       <div className="header-container">
@@ -28,9 +30,19 @@ const Header = () => {
         </NavLink>
 
         <div className="menu-container">
-          <MenuItem name="홈" path="/" />
-          <MenuItem name="보관함" path="/rank" />
-          <MenuItem name="MY" path="/event" />
+          {isLoggedIn && (
+            <>
+              <MenuItem name="홈" path="/" />
+              <MenuItem name="보관함" path="/card" />
+              <MenuItem name="MY" path="/my" />
+            </>
+          )}
+          {!isLoggedIn && (
+            <>
+              <MenuItem name="로그인" path="/login" />
+              <MenuItem name="회원가입" path="/join" />
+            </>
+          )}
         </div>
       </div>
     </HeaderLayout>

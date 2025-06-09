@@ -1,15 +1,30 @@
+import { useNavigate } from "react-router-dom";
+import useAuthStore from "@/store/auth";
 import { useMyProfileQuery } from "../../hook/profile/useMyInfoQuery";
-import { useMyVoteResultQuery } from "../../hook/vote/useMyVoteQuery";
-import { useMyVoteListQuery } from "../../hook/vote/useMyVoteList";
+import { useMyVoteResultQuery } from "../../hook/vote/useVoteResultQuery";
+import { useMyVoteListQuery } from "../../hook/vote/useVoteList";
 import MbtiPageTemplate from "@/components/templates/MbtiPageTemplate";
+import Loading from "@/components/common/loading/Loading";
 import "./home.scss";
 // import { Suspense } from "react";
 // import Loading from "react-loading";
 
 const HomeContent = () => {
-  const { data: profileData } = useMyProfileQuery();
-  const { data: voteResult } = useMyVoteResultQuery();
-  const { data: voteList } = useMyVoteListQuery();
+  const { isLoggedIn } = useAuthStore();
+  const navitate = useNavigate();
+
+  const { data: profileData, isLoading } = useMyProfileQuery(isLoggedIn);
+  const { data: voteResult } = useMyVoteResultQuery(isLoggedIn);
+  const { data: voteList } = useMyVoteListQuery(isLoggedIn);
+
+  if (!isLoggedIn) {
+    navitate("/login");
+    return null;
+  }
+
+  if (isLoading || !profileData) {
+    return <Loading />;
+  }
 
   return (
     <MbtiPageTemplate
@@ -21,10 +36,6 @@ const HomeContent = () => {
   );
 };
 
-const Home = () => (
-  // <Suspense fallback={<Loading />}>
-  <HomeContent />
-  // </Suspense>
-);
+const Home = () => <HomeContent />;
 
 export default Home;
