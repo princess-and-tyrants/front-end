@@ -9,7 +9,7 @@ import MBTITest from "./pages/MBTITest/MBTITest";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import GuestbookForm from "./pages/geustbook/GuestBook";
+import GuestbookForm from "./pages/guestBook/GuestBook";
 import User from "./pages/user/User";
 import My from "./pages/my/My";
 import Card from "./pages/card/Card";

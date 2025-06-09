@@ -8,7 +8,7 @@ import SolidButton from "@/components/button/SolidButton";
 import checkBox from "@/assets/checkBox/checkbox_checked.svg";
 import EmptycheckBox from "@/assets/checkBox/checkbox_unchecked.svg";
 import { VoteRequest } from "@/types/vote";
-import "./guestbook.scss";
+import "./guestBook.scss";
 
 const MBTI_GROUPS = [
   ["E", "I"],
