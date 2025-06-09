@@ -1,0 +1,45 @@
+@use "/src/styles/modules";
+
+.mbti-card-container {
+  background: modules.$purple-100;
+  padding: 12px;
+  border-radius: 8px;
+
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mbti-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .mbti-data-container {
+    width: 100%;
+
+    .mbti-title {
+      text-align: center;
+      margin-bottom: 2px;
+    }
+
+    .mbti-subtitle {
+      text-align: center;
+      width: 100%;
+      color: modules.$gray-400;
+      margin-bottom: 16px;
+    }
+  }
+}
