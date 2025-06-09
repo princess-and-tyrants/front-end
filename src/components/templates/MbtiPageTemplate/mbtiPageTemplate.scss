@@ -1,0 +1,36 @@
+@use "/src/styles/modules";
+
+.home-page-layout {
+  .home-my-card-layout {
+    margin-top: 32px;
+    margin-bottom: 28px;
+  }
+  .home-vote-card-layout {
+    margin-bottom: 28px;
+
+    .home-vote-title {
+      margin-bottom: 8px;
+    }
+  }
+
+  .home-visitors-container {
+    .home-visitors-title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .svg-button {
+        display: flex;
+        align-items: center;
+
+        color: modules.$purple-300;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        border: none;
+      }
+    }
+  }
+}
