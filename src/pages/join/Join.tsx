@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -30,10 +30,11 @@ export interface JoinReq {
   mbti_tf_score: number;
   mbti_pj_score: number;
 }
+type IdStatus = "unchecked" | "available" | "unavailable";
 
 const Join = () => {
   const navigate = useNavigate();
-  const [isIdAvailable, setIsIdAvailable] = useState<boolean | null>(null);
+  const [idStatus, setIdStatus] = useState<IdStatus>("unchecked");
   const [step, setStep] = useState<number>(1);
   const [ei, setEi] = useState<number>(50);
   const [sn, setSn] = useState<number>(50);
@@ -41,30 +42,33 @@ const Join = () => {
   const [pj, setPj] = useState<number>(50);
 
   const {
-    register,
     handleSubmit,
-    watch,
+    register,
+    setError,
+    clearErrors,
     formState: { errors, isValid },
+    watch,
   } = useForm<JoinProps>({ mode: "onChange" });
 
   const watchId = watch("id");
   const watchPassword = watch("password");
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      checkId(watchId).then(
-        () => {
-          setIsIdAvailable(watchId !== "takenId");
-          console.log("ID is available:", isIdAvailable);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    }, 500);
+  const handleCheckId = async () => {
+    if (!watchId) return;
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [watchId]);
+    try {
+      await checkId(watchId);
+      setIdStatus("available");
+      clearErrors("id");
+      alert("사용 가능한 아이디입니다");
+    } catch {
+      setIdStatus("unavailable");
+      setError("id", {
+        type: "manual",
+        message: "이미 사용 중인 아이디입니다",
+      });
+    }
+  };
 
   const handleJoin = (data: JoinProps) => {
     console.log("Form Submitted:", data);
@@ -103,17 +107,29 @@ const Join = () => {
                 MBTiD에 오신 걸 환영해요!
               </div>
               <div className="input-field">
-                <InputBox
-                  placeholder={"아이디"}
-                  inputType="text"
-                  {...register("id", {
-                    required: "id를 입력하세요",
-                    validate: () =>
-                      isIdAvailable === false
-                        ? "이미 사용 중인 아이디입니다"
-                        : true,
-                  })}
-                />
+                <div className="input-with-button">
+                  <InputBox
+                    placeholder={"아이디"}
+                    inputType="text"
+                    {...register("id", {
+                      required: "id를 입력하세요",
+                      onChange: () => {
+                        setIdStatus("unchecked");
+                        clearErrors("id"); // 입력이 바뀌면 에러 메시지도 같이 리셋
+                      },
+                    })}
+                  />
+                  {watchId && idStatus !== "available" && (
+                    <SolidButton
+                      size="small"
+                      type="button"
+                      onClick={handleCheckId}
+                    >
+                      중복 검사
+                    </SolidButton>
+                  )}
+                </div>
+
                 {errors.id && (
                   <p className="error-text f-caption">{errors.id.message}</p>
                 )}
@@ -171,7 +187,7 @@ const Join = () => {
                 <SolidButton
                   type="submit"
                   size="large"
-                  disabled={!isValid || isIdAvailable === false}
+                  disabled={!isValid || idStatus !== "available"}
                   onClick={() => {
                     setStep(2);
                   }}

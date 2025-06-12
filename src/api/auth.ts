@@ -14,6 +14,10 @@ export const join = async (data: JoinReq) => {
 };
 
 export const checkId = async (id: string) => {
-  const response = await api.post(`/check/id?id=${id}`);
-  return response;
+  try {
+    const response = await api.post(`/check/id?id=${id}`);
+    return response;
+  } catch {
+    throw new Error("이미 사용 중인 아이디입니다.");
+  }
 };
