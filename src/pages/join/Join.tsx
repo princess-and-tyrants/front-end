@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -41,6 +41,22 @@ const Join = () => {
   const [tf, setTf] = useState<number>(50);
   const [pj, setPj] = useState<number>(50);
 
+  useEffect(() => {
+    const stored = sessionStorage.getItem("mbtiPercentages");
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        console.log(parsed);
+        setEi(parsed.EI);
+        setSn(parsed.SN);
+        setTf(parsed.TF);
+        setPj(100 - parsed.JP);
+      } catch (e) {
+        console.error("MBTI 퍼센트 불러오기 실패", e);
+      }
+    }
+  }, []);
+
   const {
     handleSubmit,
     register,
@@ -70,28 +86,26 @@ const Join = () => {
     }
   };
 
-  const handleJoin = (data: JoinProps) => {
-    console.log("Form Submitted:", data);
-    const joinData = {
-      id: data.id,
-      password: data.password,
-      nickname: data.nickname,
-      mbti_ei_score: 100 - ei, //34 (e) e i
-      mbti_sn_score: 100 - sn, //64 (n) s n
-      mbti_tf_score: 100 - tf, //15 (t) t f
-      mbti_pj_score: 100 - pj, //94 (j) p j
-    };
+  const handleJoin = async (data: JoinProps) => {
+    try {
+      console.log("Form Submitted:", data);
+      const joinData = {
+        id: data.id,
+        password: data.password,
+        nickname: data.nickname,
+        mbti_ei_score: 100 - ei, //34 (e) e i
+        mbti_sn_score: 100 - sn, //64 (n) s n
+        mbti_tf_score: 100 - tf, //15 (t) t f
+        mbti_pj_score: 100 - pj, //94 (j) p j
+      };
 
-    join(joinData).then(
-      (res) => {
-        console.log(res);
-        alert("회원가입되었습니다");
-        navigate("/login");
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+      await join(joinData);
+      alert("회원가입되었습니다");
+      navigate("/login");
+      sessionStorage.removeItem("mbtiPercentages");
+    } catch {
+      alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+    }
   };
 
   return (
