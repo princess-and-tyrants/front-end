@@ -11,8 +11,6 @@ interface VoteListProps {
 }
 
 const VoteList = ({ voteList }: VoteListProps) => {
-  console.log("VoteList 리렌더링");
-
   return (
     <div className="visitors-container">
       {voteList.length > 0 ? (
